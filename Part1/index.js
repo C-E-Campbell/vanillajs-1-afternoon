@@ -6,14 +6,18 @@ const play = (id) => {
 	const mySpan = document.getElementById("player");
 	const td = document.getElementById(`${id}`);
 
-	if (mySpan.innerText === "X") {
-		mySpan.innerText = "O";
-		td.innerText = "X";
-		gameState[id] = "X";
+	if (td.textContent) {
+		console.log("cant reassign - the position has already been played");
 	} else {
-		mySpan.innerText = "X";
-		td.innerText = "O";
-		gameState[id] = "O";
+		if (mySpan.innerText === "X") {
+			mySpan.innerText = "O";
+			td.innerText = "X";
+			gameState[id] = "X";
+		} else {
+			mySpan.innerText = "X";
+			td.innerText = "O";
+			gameState[id] = "O";
+		}
 	}
 
 	let topLeft = gameState[0];
